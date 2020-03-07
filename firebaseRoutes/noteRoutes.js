@@ -18,17 +18,12 @@ userLoggedIn = (req, res, next) => {
 };
 
 router.post("/add", userLoggedIn, async (req, res) => {
-	const { data, userId } = req.body;
-	// let user = auth.currentUser;
-
-	// if (!user) {
-	// 	res.status(400).json({ success: false, message: "User not logged in" });
-	// }
+	const { content, userId } = req.body;
 
 	try {
 		let addDoc = await db.collection("notes").add({
 			userId,
-			data
+			content
 		});
 
 		res.status(200).json({
@@ -41,12 +36,8 @@ router.post("/add", userLoggedIn, async (req, res) => {
 });
 
 router.get("/:noteId/delete", userLoggedIn, async (req, res) => {
-	// let user = auth.currentUser;
-
-	// if (!user) {
-	// 	res.status(400).json({ success: false, message: "User not logged in" });
-	// }
 	const { noteId } = req.params;
+
 	try {
 		let deleteDoc = db
 			.collection("notes")
@@ -76,9 +67,9 @@ router.get("/all", userLoggedIn, async (req, res) => {
 		} else {
 			notesArray = [];
 			notes.forEach(doc => {
-				let { data } = doc.data();
+				let { content } = doc.data();
 				let noteId = doc.id;
-				notesArray.push({ noteId, data });
+				notesArray.push({ noteId, content });
 			});
 
 			res.status(200).json({

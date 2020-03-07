@@ -5,10 +5,14 @@ const firebase = require("./firebaseInitialize");
 const auth = firebase.auth();
 
 router.post("/signup", async (req, res) => {
-	const { email, password } = req.body;
+	const { username, email, password } = req.body;
 
 	try {
 		let userRecord = await auth.createUserWithEmailAndPassword(email, password);
+
+		userRecord.user.updateProfile({
+			displayName: username
+		});
 
 		res.status(200).json({
 			success: true,
@@ -20,19 +24,15 @@ router.post("/signup", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-	const { username, email, password } = req.body;
+	const { email, password } = req.body;
 
 	try {
 		let userRecord = await auth.signInWithEmailAndPassword(email, password);
-		let user = auth.currentUser;
-
-		user.updateProfile({
-			displayName: username
-		});
 
 		res.status(200).json({
 			success: true,
-			message: `Successfully logged in user: ${userRecord.user.uid}`
+			message: `Successfully logged in user: ${userRecord.user.uid}`,
+			displayName: userRecord.user.displayName
 		});
 	} catch (error) {
 		res.status(400).json({ success: false, message: error.message });
