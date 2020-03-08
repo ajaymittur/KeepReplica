@@ -16,13 +16,13 @@ function MainPage(props) {
 
 	useEffect(() => {
 		axios
-			.get("/notes/all")
+			.get("https://keepreplica.herokuapp.com/notes/all")
 			.then(res => {
 				setNotes(res.data.notes);
 			})
 			.catch(err => console.log);
 		axios
-			.get("/todos/all")
+			.get("https://keepreplica.herokuapp.com/todos/all")
 			.then(res => {
 				setTodos(res.data.todos);
 			})
@@ -31,14 +31,17 @@ function MainPage(props) {
 
 	const addNote = async () => {
 		if (data.length > 0) {
-			await axios.post("/notes/add", { content: data });
+			await axios.post("https://keepreplica.herokuapp.com/notes/add", { content: data });
 			setNoteChanged(noteChanged + 1);
 		}
 	};
 
 	const addTodo = async () => {
 		if (data.length > 0) {
-			await axios.post("/todos/add", { content: data, checked: false });
+			await axios.post("https://keepreplica.herokuapp.com/todos/add", {
+				content: data,
+				checked: false
+			});
 			setTodoChanged(todoChanged + 1);
 		}
 	};
@@ -48,17 +51,17 @@ function MainPage(props) {
 	};
 
 	const changeCheck = async id => {
-		await axios.get(`/todos/${id}/check`);
+		await axios.get(`https://keepreplica.herokuapp.com/todos/${id}/check`);
 		setCheckChanged(checkChanged + 1);
 	};
 
 	const deleteNote = async id => {
-		await axios.get(`/notes/${id}/delete`);
+		await axios.get(`https://keepreplica.herokuapp.com/notes/${id}/delete`);
 		setNoteChanged(noteChanged + 1);
 	};
 
 	const deleteTodo = async id => {
-		await axios.get(`/todos/${id}/delete`);
+		await axios.get(`https://keepreplica.herokuapp.com/todos/${id}/delete`);
 		setTodoChanged(todoChanged + 1);
 	};
 

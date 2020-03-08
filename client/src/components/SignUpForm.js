@@ -10,7 +10,7 @@ function SignUpForm(props) {
 	const handleSubmit = async e => {
 		e.preventDefault();
 		try {
-			let response = await axios.post("/user/signup", formData);
+			let response = await axios.post("https://keepreplica.herokuapp.com/user/signup", formData);
 			if (response.data.success)
 				props.history.push({
 					pathname: "/home",
