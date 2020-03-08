@@ -38,14 +38,14 @@ Firebase has been used to store the required data and for authentication. Hence,
 3. Go to Project Settings by **clicking the setting gear icon** next to _Project Overview_
 4. Click **Add app** under your apps
 5. Fill in the details and obtain the API keys and save them in a `.env` file (name should be **.env** only and nothing else) in the `root/` folder. The `.env` file should look something like this :-
-   - ```
-     		apiKey=<api key>
-     		authDomain=<auth domain>
-     		databaseURL=<database url>
-     		projectId=<project id>
-     		storageBucket=<storage bucket>
-     		messagingSenderId=<messaging sender id>
-     		appId=<app id>
+    ```
+      apiKey=<api key>
+      authDomain=<auth domain>
+      databaseURL=<database url>
+      projectId=<project id>
+      storageBucket=<storage bucket>
+      messagingSenderId=<messaging sender id>
+      appId=<app id>
      ```
 6. Uncomment the commented lines **5** and **6** in `index.js` in the `root/` folder
 7. Enable **Authentication** by clicking on it and enabling **Email/Password** in the _Sign-in method_ menu
