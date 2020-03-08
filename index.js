@@ -23,6 +23,6 @@ app.use(express.json());
 
 app.use("/user", userRoutes);
 app.use("/notes", noteRoutes);
-app.use("/todo", todoRoutes);
+app.use("/todos", todoRoutes);
 
 app.listen(port, () => console.log(`Server listening on port ${port}!`));
