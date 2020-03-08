@@ -9,6 +9,15 @@ const userRoutes = require("./firebaseRoutes/userRoutes");
 const noteRoutes = require("./firebaseRoutes/noteRoutes");
 const todoRoutes = require("./firebaseRoutes/todoRoutes");
 
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header(
+		"Access-Control-Allow-Headers",
+		"Origin, X-Requested-With, Content-Type, Content-Length, Accept"
+	);
+	next();
+});
+
 app.use((req, res, next) => {
 	let date = new Date();
 	console.log(
