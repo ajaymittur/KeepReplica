@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 8000 || process.env.port;
+const port = 8000 || process.env.PORT;
 
 // Uncomment if running locally
 // const dotenv = require("dotenv");
