@@ -1,4 +1,4 @@
-# Signzy Evaluation Test - Keep Replica
+# Keep Replica
 
 ---
 
