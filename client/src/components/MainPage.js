@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Button, Form, Grid, Header, Message, Checkbox, Image, Divider } from "semantic-ui-react";
+import { Button, Form, Grid, Header, Message, Checkbox, Image } from "semantic-ui-react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import Linkify from "react-linkify";
