@@ -11,13 +11,7 @@ function SignUpForm(props) {
 		e.preventDefault();
 		try {
 			let response = await axios.post("https://keepreplica.herokuapp.com/user/signup", formData);
-			if (response.data.success)
-				props.history.push({
-					pathname: "/home",
-					state: {
-						displayName: response.data.displayName
-					}
-				});
+			if (response.data.success) props.history.push("/login");
 			else setError({ message: response.data.message });
 		} catch (error) {
 			setError({ message: error.response.data.message });
