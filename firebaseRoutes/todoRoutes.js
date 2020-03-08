@@ -88,8 +88,8 @@ router.get("/all", userLoggedIn, async (req, res) => {
 			todosArray = [];
 			todos.forEach(doc => {
 				let { content, checked } = doc.data();
-				let noteId = doc.id;
-				todosArray.push({ noteId, content, checked });
+				let todoId = doc.id;
+				todosArray.push({ todoId, content, checked });
 			});
 
 			res.status(200).json({
