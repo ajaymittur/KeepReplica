@@ -2,8 +2,9 @@ const express = require("express");
 const app = express();
 const port = 8000;
 
-const dotenv = require("dotenv");
-dotenv.config();
+// Uncomment if running locally
+// const dotenv = require("dotenv");
+// dotenv.config();
 
 const userRoutes = require("./firebaseRoutes/userRoutes");
 const noteRoutes = require("./firebaseRoutes/noteRoutes");
