@@ -11,7 +11,11 @@ const todoRoutes = require("./firebaseRoutes/todoRoutes");
 
 app.use((req, res, next) => {
 	let date = new Date();
-	console.log(`Time: ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} Endpoint: ${req.originalUrl}`);
+	console.log(
+		`Time: ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} Endpoint: ${
+			req.originalUrl
+		}`
+	);
 	next();
 });
 
