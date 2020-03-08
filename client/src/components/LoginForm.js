@@ -20,7 +20,7 @@ function LoginForm(props) {
 				});
 			else setError({ message: response.data.message });
 		} catch (error) {
-			setError({ message: error.message });
+			setError({ message: error.response.data.message });
 		}
 	};
 
