@@ -1,7 +1,7 @@
 {
 	"name": "keepreplica",
 	"version": "1.0.0",
-	"description": "Signzy evaluation test",
+	"description": "Google Keep Replica",
 	"main": "index.js",
 	"scripts": {
 		"start": "node index.js"
